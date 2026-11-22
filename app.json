@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "TaxLens",
+    "slug": "taxlens",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "android": {
+      "package": "com.taxlens.app",
+      "versionCode": 1
+    }
+  }
+}
