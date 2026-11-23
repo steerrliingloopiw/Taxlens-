@@ -15,3 +15,4 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
       - run: eas init --non-interactive --force
       - run: eas build --platform android --profile preview --non-interactive --no-wait
+      
