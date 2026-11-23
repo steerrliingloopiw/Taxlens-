@@ -1,0 +1,26 @@
+name: Build Android
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: pip install pillow
+      - run: python make_icon.py
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add icon-pro.png adaptive-icon-pro.png
+          git commit -m "Generate icons" || echo "no changes"
+          git push
+      - run: npm install
+      - run: npm install -g eas-cli
+      - run: eas init --non-interactive --force
+      - run: eas build --platform android --profile preview --non-interactive --no-wait
