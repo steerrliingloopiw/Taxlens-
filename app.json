@@ -5,11 +5,21 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
+    "icon": "./icon-pro.png",
+    "splash": {
+      "image": "./adaptive-icon-pro.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0c3a55"
+    },
     "plugins": ["expo-notifications"],
     "android": {
       "package": "com.taxlens.app",
       "versionCode": 1,
-      "permissions": ["POST_NOTIFICATIONS"]
+      "permissions": ["POST_NOTIFICATIONS"],
+      "adaptiveIcon": {
+        "foregroundImage": "./adaptive-icon-pro.png",
+        "backgroundColor": "#0c3a55"
+      }
     }
   }
 }
